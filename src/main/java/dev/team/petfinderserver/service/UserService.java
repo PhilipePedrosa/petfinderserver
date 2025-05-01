@@ -32,12 +32,12 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User save(User user) {
+    public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 
-    public User register(UserRequestDTO userRequest) {
+    public void register(UserRequestDTO userRequest) {
         User user = new User();
         user.setUsername(userRequest.getUsername());
         user.setPassword(userRequest.getPassword());
@@ -52,6 +52,6 @@ public class UserService {
         userData.setUser(user);
         user.setUserData(userData);
 
-        return save(user);
+        save(user);
     }
 }

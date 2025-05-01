@@ -2,13 +2,15 @@ POST http://localhost:8080/api/users/register
 Content-Type: application/json
 
 {
-    "username": "testuser1",
-    "password": "password123",
+  "username": "testuser1",
+  "password": "password123",
+  "userData": {
     "firstName": "Test",
     "lastName": "User",
     "email": "test@example.com",
     "securityId": "123456781",
     "phoneNumber": "1234567890"
+  }
 }
 
 POST http://localhost:8080/api/users/login
@@ -20,7 +22,7 @@ Content-Type: application/json
 }
 
 POST http://localhost:8080/api/animals/lost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJpYXQiOjE3NDQ3OTA0NzcsImV4cCI6MTc0NDg3Njg3N30.VIBbFm15_K8_mEr7fTqG-ztaKebKzpSpRTOPMCy3o9c
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIxIiwiaWF0IjoxNzQ2MTM2NTcyLCJleHAiOjE3NDYyMjI5NzJ9.RKBgMJQG-wrgC8jz9VZG83hTBw-FMzwBoBzH3dMD9ZA
 Content-Type: application/json
 
 {
@@ -36,7 +38,7 @@ Content-Type: application/json
 }
 
 POST http://localhost:8080/api/animals/found
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJpYXQiOjE3NDQ3OTA0NzcsImV4cCI6MTc0NDg3Njg3N30.VIBbFm15_K8_mEr7fTqG-ztaKebKzpSpRTOPMCy3o9c
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIxIiwiaWF0IjoxNzQ2MTM2NTcyLCJleHAiOjE3NDYyMjI5NzJ9.RKBgMJQG-wrgC8jz9VZG83hTBw-FMzwBoBzH3dMD9ZA
 Content-Type: application/json
 
 {
@@ -51,13 +53,10 @@ Content-Type: application/json
 }
 
 GET http://localhost:8080/api/animals/lost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJpYXQiOjE3NDQ3OTA0NzcsImV4cCI6MTc0NDg3Njg3N30.VIBbFm15_K8_mEr7fTqG-ztaKebKzpSpRTOPMCy3o9c
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIxIiwiaWF0IjoxNzQ2MTM2NTcyLCJleHAiOjE3NDYyMjI5NzJ9.RKBgMJQG-wrgC8jz9VZG83hTBw-FMzwBoBzH3dMD9ZA
 GET http://localhost:8080/api/animals/found
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJpYXQiOjE3NDQ3OTA0NzcsImV4cCI6MTc0NDg3Njg3N30.VIBbFm15_K8_mEr7fTqG-ztaKebKzpSpRTOPMCy3o9c
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIxIiwiaWF0IjoxNzQ2MTM2NTcyLCJleHAiOjE3NDYyMjI5NzJ9.RKBgMJQG-wrgC8jz9VZG83hTBw-FMzwBoBzH3dMD9ZA
 GET http://localhost:8080/api/animals/lost/{id}
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJpYXQiOjE3NDQ3OTA0NzcsImV4cCI6MTc0NDg3Njg3N30.VIBbFm15_K8_mEr7fTqG-ztaKebKzpSpRTOPMCy3o9c
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIxIiwiaWF0IjoxNzQ2MTM2NTcyLCJleHAiOjE3NDYyMjI5NzJ9.RKBgMJQG-wrgC8jz9VZG83hTBw-FMzwBoBzH3dMD9ZA
 GET http://localhost:8080/api/animals/found/{id}
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjEiLCJpYXQiOjE3NDQ3OTA0NzcsImV4cCI6MTc0NDg3Njg3N30.VIBbFm15_K8_mEr7fTqG-ztaKebKzpSpRTOPMCy3o9c
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIxIiwiaWF0IjoxNzQ2MTM2NTcyLCJleHAiOjE3NDYyMjI5NzJ9.RKBgMJQG-wrgC8jz9VZG83hTBw-FMzwBoBzH3dMD9ZA

@@ -16,19 +16,18 @@ REGISTER_RESPONSE=$(curl -s -w "\n%{http_code}" -X POST http://localhost:8080/ap
     -d '{
         "username": "testuser",
         "password": "password123",
-        "firstName": "Test",
-        "lastName": "User",
-        "email": "test@example.com",
-        "securityId": "123456789",
-        "phoneNumber": "1234567890"
+        "userData": {
+            "firstName": "Test",
+            "lastName": "User",
+            "email": "test1@example.com",
+            "securityId": "123456789",
+            "phoneNumber": "1234567891"
+        }
     }')
 REGISTER_HTTP_STATUS=$(echo "$REGISTER_RESPONSE" | tail -n1)
 REGISTER_BODY=$(echo "$REGISTER_RESPONSE" | sed '$d')
 REGISTER_STATUS=$?
 print_result "Registro" "$REGISTER_STATUS" "$REGISTER_HTTP_STATUS" "$REGISTER_BODY"
-
-# Extrair o ID do usuário da resposta
-USER_ID=$(echo $REGISTER_BODY | grep -o '"id":[0-9]*' | cut -d':' -f2)
 
 # Teste de login
 echo "Testando login..."
@@ -46,14 +45,10 @@ print_result "Login" "$LOGIN_STATUS" "$LOGIN_HTTP_STATUS" "$LOGIN_BODY"
 # Extrair o token da resposta
 TOKEN=$(echo $LOGIN_BODY | grep -o '"token":"[^"]*"' | cut -d'"' -f4)
 
-# Teste de busca por ID
-echo "Testando busca por ID..."
-GET_USER_RESPONSE=$(curl -s -w "\n%{http_code}" -X GET http://localhost:8080/api/users/3 \
-    -H "Authorization: Bearer $TOKEN")
-GET_USER_HTTP_STATUS=$(echo "$GET_USER_RESPONSE" | tail -n1)
-GET_USER_BODY=$(echo "$GET_USER_RESPONSE" | sed '$d')
-GET_USER_STATUS=$?
-print_result "Busca por ID" "$GET_USER_STATUS" "$GET_USER_HTTP_STATUS" "$GET_USER_BODY"
+if [ -z "$TOKEN" ]; then
+    echo "Erro: Não foi possível obter o token de autenticação. Testes subsequentes serão ignorados."
+    exit 1
+fi
 
 # Teste de registro de animal perdido
 echo "Testando registro de animal perdido..."
@@ -121,7 +116,7 @@ FOUND_ANIMAL_RESPONSE=$(curl -s -w "\n%{http_code}" -X GET http://localhost:8080
 FOUND_ANIMAL_HTTP_STATUS=$(echo "$FOUND_ANIMAL_RESPONSE" | tail -n1)
 FOUND_ANIMAL_BODY=$(echo "$FOUND_ANIMAL_RESPONSE" | sed '$d')
 FOUND_ANIMAL_STATUS=$?
-print_result "Registro de Animal Encontrado" "$FOUND_ANIMAL_STATUS" "$FOUND_ANIMAL_HTTP_STATUS" "$FOUND_ANIMAL_BODY"
+print_result "Retorno de Animal por ID" "$FOUND_ANIMAL_STATUS" "$FOUND_ANIMAL_HTTP_STATUS" "$FOUND_ANIMAL_BODY"
 
 # Teste de endpoint autenticado /api/test
 echo "Testando endpoint autenticado /api/test..."

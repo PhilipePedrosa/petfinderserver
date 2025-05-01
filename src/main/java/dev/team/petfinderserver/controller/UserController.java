@@ -51,7 +51,7 @@ public class UserController {
                 return ResponseEntity.badRequest().body("Nome de usuário já existe");
             }
 
-            User user = userService.register(userRequest);
+            userService.register(userRequest);
             return ResponseEntity.ok("Usuário registrado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Erro ao registrar usuário: " + e.getMessage());
