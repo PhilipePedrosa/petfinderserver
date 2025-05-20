@@ -13,4 +13,5 @@ public class AnimalCharacteristicsDTO {
     private String breed;
     private String color;
     private String size;
+
 } 
