@@ -1,0 +1,14 @@
+POST http://localhost:8080/api/animals/found
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "location": "São Paulo, SP",
+  "date": "2024-04-16T10:00:00",
+  "characteristics": {
+    "species": "Gato",
+    "breed": "Siamês",
+    "color": "Branco",
+    "size": "Médio"
+  }
+}
