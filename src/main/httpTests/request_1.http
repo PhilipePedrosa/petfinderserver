@@ -2,13 +2,13 @@ POST http://localhost:8080/api/users/register
 Content-Type: application/json
 
 {
-  "username": "testuser1",
-  "password": "password123",
+  "username": "teste",
+  "password": "123123",
   "userData": {
-    "firstName": "Test",
-    "lastName": "User",
-    "email": "test@example.com",
-    "securityId": "123456781",
-    "phoneNumber": "1234567890"
+    "firstName": "teste",
+    "lastName": "teste",
+    "email": "teste@teste.com",
+    "securityId": "12312312312",
+    "phoneNumber": "62980008000"
   }
 }

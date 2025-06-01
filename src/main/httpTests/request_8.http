@@ -1,2 +1,2 @@
 GET http://localhost:8080/api/animals/lost
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdGUiLCJpYXQiOjE3NDg1MzUyNTgsImV4cCI6MTc0ODYyMTY1OH0.sPXc8IcPSfJ0sTJDWjNc1TnoY4_i2fqckjh7l2jCb0c

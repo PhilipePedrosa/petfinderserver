@@ -22,7 +22,7 @@ public class AnimalCharacteristics {
     @Column(name = "animal_characteristics_species", nullable = false)
     private String species;
 
-    @Column(name = "animal_characteristics_race", nullable = false)
+    @Column(name = "animal_characteristics_breed", nullable = false)
     private String breed;
 
     @Column(name = "animal_characteristics_color", nullable = false)
