@@ -103,6 +103,7 @@ try {
         -ContentType "application/json" `
         -Headers @{ "Authorization" = "Bearer $token" } `
         -Body '{
+            "name": "Mimi",
             "location": "São Paulo, SP",
             "date": "2024-04-16T10:00:00",
             "characteristics": {

@@ -13,6 +13,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FoundAnimal extends Animal {
+    @Column(name = "found_animal_name")
+    private String name;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id_fk", referencedColumnName = "user_id")
     private User finder;

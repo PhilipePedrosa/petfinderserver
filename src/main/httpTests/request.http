@@ -42,6 +42,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiX
 Content-Type: application/json
 
 {
+    "name": "Mimi",
     "location": "São Paulo, SP",
     "date": "2024-04-16T10:00:00",
     "characteristics": {

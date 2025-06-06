@@ -13,5 +13,7 @@ public class LostAnimalRequestDTO {
     private String name;
     private String location;
     private Date date;
+    private String description;
+    private String photo;
     private AnimalCharacteristicsDTO characteristics;
 }

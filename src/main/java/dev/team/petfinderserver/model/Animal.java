@@ -32,6 +32,9 @@ public abstract class Animal {
     @Column(name = "animal_description")
     private String description;
 
+    @Column(name = "animal_photo", columnDefinition = "BYTEA")
+    private byte[] photo;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "animal_characteristics_id_fk", nullable = false)
     private AnimalCharacteristics characteristics;

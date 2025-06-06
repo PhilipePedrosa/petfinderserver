@@ -13,6 +13,8 @@ public class LostAnimalDTO {
     private String location;
     private Date date;
     private boolean deliveredStatus;
+    private String description;
+    private String photo;
     private AnimalCharacteristicsDTO characteristics;
     private UserResponseDTO owner;
 } 

@@ -14,5 +14,7 @@ public class AnimalDTO {
     private Boolean deliveredStatus;
     private String location;
     private Date date;
+    private String description;
+    private String photo;
     private AnimalCharacteristicsDTO characteristics;
 } 

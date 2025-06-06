@@ -77,6 +77,7 @@ FOUND_ANIMAL_RESPONSE=$(curl -s -w "\n%{http_code}" -X POST http://localhost:808
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $TOKEN" \
     -d '{
+        "name": "Mimi",
         "location": "São Paulo, SP",
         "date": "2024-04-16T10:00:00",
         "characteristics": {

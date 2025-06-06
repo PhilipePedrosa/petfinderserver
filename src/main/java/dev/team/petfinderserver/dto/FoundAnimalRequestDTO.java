@@ -10,7 +10,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoundAnimalRequestDTO {
+    private String name;
     private String location;
     private Date date;
+    private String description;
+    private String photo;
     private AnimalCharacteristicsDTO characteristics;
 }

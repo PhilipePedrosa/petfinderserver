@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -77,6 +78,11 @@ public class AnimalController {
         animal.setLocation(dto.getLocation());
         animal.setDate(dto.getDate());
         animal.setDeliveredStatus(false);
+        animal.setDescription(dto.getDescription());
+        
+        if (dto.getPhoto() != null && !dto.getPhoto().isEmpty()) {
+            animal.setPhoto(Base64.getDecoder().decode(dto.getPhoto()));
+        }
         
         AnimalCharacteristics characteristics = new AnimalCharacteristics();
         characteristics.setSpecies(dto.getCharacteristics().getSpecies());
@@ -90,9 +96,15 @@ public class AnimalController {
 
     private FoundAnimal convertToFoundAnimal(FoundAnimalRequestDTO dto) {
         FoundAnimal animal = new FoundAnimal();
+        animal.setName(dto.getName());
         animal.setLocation(dto.getLocation());
         animal.setDate(dto.getDate());
         animal.setDeliveredStatus(false);
+        animal.setDescription(dto.getDescription());
+        
+        if (dto.getPhoto() != null && !dto.getPhoto().isEmpty()) {
+            animal.setPhoto(Base64.getDecoder().decode(dto.getPhoto()));
+        }
         
         AnimalCharacteristics characteristics = new AnimalCharacteristics();
         characteristics.setSpecies(dto.getCharacteristics().getSpecies());
@@ -111,6 +123,11 @@ public class AnimalController {
         dto.setLocation(animal.getLocation());
         dto.setDate(animal.getDate());
         dto.setName(animal.getName());
+        dto.setDescription(animal.getDescription());
+        
+        if (animal.getPhoto() != null) {
+            dto.setPhoto(Base64.getEncoder().encodeToString(animal.getPhoto()));
+        }
         
         AnimalCharacteristicsDTO characteristicsDTO = new AnimalCharacteristicsDTO();
         characteristicsDTO.setId(animal.getCharacteristics().getId());
@@ -121,12 +138,12 @@ public class AnimalController {
         dto.setCharacteristics(characteristicsDTO);
 
         if (animal.getOwner() != null) {
-            User finder = animal.getOwner();
-            UserData userData = finder.getUserData();
+            User owner = animal.getOwner();
+            UserData userData = owner.getUserData();
 
             UserResponseDTO ownerDTO = new UserResponseDTO();
-            ownerDTO.setId(finder.getId());
-            ownerDTO.setUsername(finder.getUsername());
+            ownerDTO.setId(owner.getId());
+            ownerDTO.setUsername(owner.getUsername());
 
             if (userData != null) {
                 ownerDTO.setFirstName(userData.getFirstName());
@@ -148,6 +165,12 @@ public class AnimalController {
         dto.setDeliveredStatus(animal.getDeliveredStatus());
         dto.setLocation(animal.getLocation());
         dto.setDate(animal.getDate());
+        dto.setName(animal.getName());
+        dto.setDescription(animal.getDescription());
+        
+        if (animal.getPhoto() != null) {
+            dto.setPhoto(Base64.getEncoder().encodeToString(animal.getPhoto()));
+        }
         
         AnimalCharacteristicsDTO characteristicsDTO = new AnimalCharacteristicsDTO();
         characteristicsDTO.setId(animal.getCharacteristics().getId());
